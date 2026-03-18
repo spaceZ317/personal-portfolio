@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyasi Folborg | AI Product Engineer</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2e;
+      --panel: rgba(16, 28, 48, 0.82);
+      --text: #e8eefc;
+      --muted: #9fb0cf;
+      --line: rgba(255,255,255,0.08);
+      --accent: #6ee7f9;
+      --accent-2: #8b5cf6;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 249, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.16), transparent 28%),
+        linear-gradient(180deg, #07111f 0%, #091526 45%, #06101d 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 740px;
+      font-size: 1.05rem;
+    }
+
+    .surface {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, 0.62);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+      font-weight: 900;
+      box-shadow: 0 10px 28px rgba(110, 231, 249, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 46px 0 30px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-panel {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(110, 231, 249, 0.08);
+      border: 1px solid rgba(110, 231, 249, 0.18);
+      color: #c8f7ff;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 10.5ch;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), #eaf4ff 45%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 28px 0 26px;
+    }
+
+    .btn {
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      transition: 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+      border: none;
+      box-shadow: 0 16px 34px rgba(107, 194, 255, 0.24);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .project-link:hover { transform: translateY(-2px); }
+    .btn-secondary:hover,
+    .project-link:hover { background: rgba(255,255,255,0.06); }
+
+    .hero-stats,
+    .mini-grid,
+    .services-grid,
+    .projects-grid,
+    .cert-grid,
+    .stack-grid,
+    .process-grid,
+    .industry-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .hero-stats { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+    .mini-grid { grid-template-columns: repeat(2, 1fr); margin-top: 0; }
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .projects-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    .stack-grid { grid-template-columns: repeat(4, 1fr); }
+    .industry-grid { grid-template-columns: repeat(3, 1fr); }
+    .process-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .stat,
+    .mini-card,
+    .card,
+    .project-card,
+    .cert-card,
+    .timeline-card {
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .mini-card h3,
+    .project-card h3,
+    .card h3,
+    .cert-card h3,
+    .timeline-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .mini-card p,
+    .project-card p,
+    .card p,
+    .cert-card p,
+    .timeline-card p,
+    .stat span {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.34rem;
+      margin-bottom: 4px;
+    }
+
+    .panel-footer {
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(110,231,249,0.08), rgba(139,92,246,0.08));
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .panel-footer strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(110,231,249,0.14), rgba(139,92,246,0.14));
+      border: 1px solid rgba(255,255,255,0.07);
+      font-size: 1.2rem;
+    }
+
+    .stack-list,
+    .tag-list,
+    .industry-list,
+    .project-meta,
+    .cert-meta,
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .stack-list,
+    .tag-list,
+    .industry-list,
+    .project-meta,
+    .cert-meta { margin-top: 18px; }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #d6e3fb;
+      font-size: 0.9rem;
+    }
+
+    .stack-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #d6e3fb;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      border-color: rgba(110, 231, 249, 0.24);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .skill-tag img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      flex: 0 0 18px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.92);
+      padding: 2px;
+    }
+
+    .skill-tag span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stack-card-title,
+    .projects-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .stack-card-title span { color: var(--muted); font-size: 0.9rem; }
+
+    #projects {
+      position: relative;
+    }
+
+    #projects::before {
+      content: "";
+      position: absolute;
+      inset: 80px 0 auto;
+      height: 420px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(110, 231, 249, 0.12), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.14), transparent 28%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #projects .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects-header {
+      margin-bottom: 10px;
+      padding: 0 4px;
+    }
+
+    .projects-header .section-title {
+      max-width: 12ch;
+      margin-bottom: 10px;
+    }
+
+    .projects-grid {
+      align-items: start;
+      gap: 22px;
+    }
+
+    .project-metric {
+      margin-top: 18px;
+      color: #d7fff7;
+      font-size: 0.95rem;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      line-height: 1.7;
+    }
+
+    .featured-project {
+      grid-column: span 1;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 0;
+      align-items: stretch;
+      background: linear-gradient(180deg, rgba(19, 33, 56, 0.96), rgba(11, 22, 39, 0.94));
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .featured-project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 249, 0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.12), transparent 30%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .featured-project-copy {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .featured-project-copy h3 {
+      font-size: clamp(1.55rem, 2vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .featured-project-copy p {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .featured-project-gallery {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 14px;
+      align-items: stretch;
+      background: rgba(255,255,255,0.02);
+      border-left: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .featured-shot,
+    .featured-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .featured-shot { min-height: 360px; object-position: center top; }
+    .featured-avatar { min-height: 360px; object-position: center; }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .project-gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-gallery img:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110, 231, 249, 0.28);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .project-link,
+    .cert-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .project-link {
+      background: linear-gradient(135deg, rgba(110,231,249,0.16), rgba(139,92,246,0.14));
+      border-color: rgba(110,231,249,0.22);
+    }
+
+    .cert-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .timeline-step {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer {
+      padding: 34px 0 60px;
+      color: var(--muted);
+    }
+
+    .footer-bar {
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .services-grid,
+      .stack-grid,
+      .industry-grid,
+      .process-grid,
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-grid { grid-template-columns: 1fr; }
+      .featured-project { grid-template-columns: 1fr; }
+      .featured-project-gallery {
+        padding: 0 34px 34px;
+        grid-template-columns: 1fr 220px;
+        border-left: none;
+        background: transparent;
+      }
+      .project-gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 20px)); }
+      .section { padding: 68px 0; }
+      .hero-copy,
+      .hero-panel,
+      .card,
+      .project-card,
+      .cert-card,
+      .timeline-card,
+      .featured-project-copy { padding: 22px; }
+      .hero-stats,
+      .mini-grid,
+      .services-grid,
+      .stack-grid,
+      .projects-grid,
+      .industry-grid,
+      .process-grid,
+      .cert-grid { grid-template-columns: 1fr; }
+      .featured-project { border-radius: 24px; }
+      .featured-project-gallery {
+        grid-template-columns: 1fr;
+        padding: 0 22px 22px;
+      }
+      .project-gallery { grid-template-columns: 1fr; }
+      .featured-shot,
+      .featured-avatar { min-height: 220px; }
+      .menu-btn { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 10px;
+        right: 10px;
+        padding: 12px;
+        border-radius: 20px;
+        background: rgba(7,17,31,0.96);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 14px; }
+      h1 { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Portfolio home">
+        <span class="brand-mark">G</span>
+        <span>Gyasi Folborg <span style="color: var(--muted); font-weight: 600;">| AI Product Engineer</span></span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#stack">Stack</a>
+        <a href="#projects">Projects</a>
+        <a href="#industries">Industries</a>
+        <a href="#process">Process</a>
+        <a href="#certifications">Certifications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy surface reveal">
+          <div class="eyebrow">⚡ AI Product Engineer · Python · FastAPI · Next.js · MVP to Production</div>
+          <h1>Building <span class="gradient-text">AI-powered products</span> from MVP to production.</h1>
+          <p>
+            Got an AI product idea you want to validate quickly — or a prototype that’s ready to grow into something more? I work with startup founders and small teams to build AI-powered products that actually make it to production. Not just a demo that falls apart under pressure, but something investors can see, customers can use, and your team can maintain and build on.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Featured Work</a>
+            <a class="btn btn-secondary" href="#certifications">See Certifications</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>MVP to Production</strong>
+              <span>Built for real users, not fragile demos</span>
+            </div>
+            <div class="stat">
+              <strong>AI + SaaS Systems</strong>
+              <span>RAG, workflows, internal tools, and product platforms</span>
+            </div>
+            <div class="stat">
+              <strong>Full-Stack Delivery</strong>
+              <span>Architecture, integrations, deployment, and handoff</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel surface reveal">
+          <div class="mini-grid">
+            <div class="mini-card">
+              <h3>SaaS product builds</h3>
+              <p>Onboarding, auth, billing, dashboards, admin panels, analytics, and the product foundations teams need.</p>
+            </div>
+            <div class="mini-card">
+              <h3>RAG systems</h3>
+              <p>Document ingestion, chunking, embeddings, semantic retrieval, citations, guardrails, and evaluation.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Automation pipelines</h3>
+              <p>Agentic workflows, tool calling, queues, retries, worker pipelines, fallback handling, and monitoring.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Production delivery</h3>
+              <p>Clean architecture, secure defaults, deployment support, documentation, and practical handoff.</p>
+            </div>
+          </div>
+
+          <div class="panel-footer">
+            <strong>Best fit projects</strong>
+            <div class="tag-list">
+              <span class="tag">AI MVPs</span>
+              <span class="tag">RAG systems</span>
+              <span class="tag">Internal tools</span>
+              <span class="tag">Workflow automation</span>
+              <span class="tag">SaaS platforms</span>
+              <span class="tag">API integrations</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="reveal">
+          <span class="badge">What I build</span>
+          <h2 class="section-title">Services built around AI products, SaaS, and production-ready systems</h2>
+          <p class="section-subtitle">
+            I help startup founders and growing teams turn ideas into real v1 products with the architecture, integrations, and delivery structure needed to reach production.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card surface reveal">
+            <div class="icon">🤖</div>
+            <h3>AI MVP Development</h3>
+            <p>AI-powered products designed to validate ideas quickly while staying stable enough for real users, investors, and team handoff.</p>
+          </article>
+
+          <article class="card surface reveal">
+            <div class="icon">🧩</div>
+            <h3>SaaS Product Engineering</h3>
+            <p>From onboarding and auth to dashboards, billing, admin tools, and analytics, I build the systems real SaaS products need.</p>
+          </article>
+
+          <article class="card surface reveal">
+            <div class="icon">📚</div>
+            <h3>RAG & Knowledge Systems</h3>
+            <p>End-to-end document-heavy AI systems with ingestion, chunking, embeddings, retrieval, citations, and evaluation pipelines.</p>
+          </article>
+
+          <article class="card surface reveal">
+            <div class="icon">⚙️</div>
+            <h3>Automation & Integrations</h3>
+            <p>Reliable multi-step workflows, third-party APIs, webhooks, CRMs, payments, and event-driven backend systems.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <div class="container">
+        <div class="reveal">
+          <span class="badge">Core stack</span>
+          <h2 class="section-title">Tech stack aligned with your strongest Upwork positioning</h2>
+          <p class="section-subtitle">
+            Centered around AI product delivery, modern web engineering, backend systems, integrations, vector databases, and production deployment.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <article class="card surface reveal">
+            <div class="stack-card-title">
+              <h3>Frontend</h3>
+              <span>UI / product</span>
+            </div>
+            <div class="stack-list">
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo" /><span>React</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js logo" /><span>Next.js</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript logo" /><span>TypeScript</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind CSS logo" /><span>Tailwind</span></div>
+            </div>
+          </article>
+
+          <article class="card surface reveal">
+            <div class="stack-card-title">
+              <h3>Backend</h3>
+              <span>APIs / services</span>
+            </div>
+            <div class="stack-list">
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" /><span>Python</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI logo" /><span>FastAPI</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js logo" /><span>Node.js</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="REST API icon" /><span>REST</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" alt="GraphQL logo" /><span>GraphQL</span></div>
+              <div class="skill-tag"><img src="https://img.icons8.com/fluency/48/webhook.pnghttps://avatars.githubusercontent.com/u/54333248?s=200&v=4" alt="Webhooks icon" /><span>Webhooks</span></div>
+            </div>
+          </article>
+
+          <article class="card surface reveal">
+            <div class="stack-card-title">
+              <h3>AI & Retrieval</h3>
+              <span>RAG / LLM</span>
+            </div>
+            <div class="stack-list">
+              <div class="skill-tag"><img src="https://openai.com/favicon.ico" alt="OpenAI logo" /><span>OpenAI</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/readthedocs/8CA1AF" alt="RAG icon" /><span>RAG</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Embeddings icon" /><span>Embeddings</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="pgvector icon" /><span>pgvector</span></div>
+              <div class="skill-tag"><img src="https://avatars.githubusercontent.com/u/54333248?s=200&v=4" alt="Pinecone logo" /><span>Pinecone</span></div>
+              <div class="skill-tag"><img src="https://weaviate.io/favicon.ico" alt="Weaviate logo" /><span>Weaviate</span></div>
+            </div>
+          </article>
+
+          <article class="card surface reveal">
+            <div class="stack-card-title">
+              <h3>Data & Infra</h3>
+              <span>deploy / ops</span>
+            </div>
+            <div class="stack-list">
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="Postgres logo" /><span>Postgres</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis logo" /><span>Redis</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo" /><span>MongoDB</span></div>
+              <div class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo" /><span>Docker</span></div>
+              <div class="skill-tag"><img src="https://aws.amazon.com/favicon.ico" alt="AWS logo" /><span>AWS</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Google Cloud logo" /><span>GCP</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel logo" /><span>Vercel</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="CI/CD icon" /><span>CI/CD</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/make/6D00CC" alt="Make logo" /><span>Make</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/zapier/FF4F00" alt="Zapier logo" /><span>Zapier</span></div>
+              <div class="skill-tag"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n logo" /><span>n8n</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="projects-header reveal">
+          <div>
+            <span class="badge">Featured work</span>
+            <!-- <h2 class="section-title">Project types that match your Upwork profile overview</h2> -->
+          </div>
+          <!-- <p class="section-subtitle" style="max-width: 480px;">
+            This portfolio mixes your broader Upwork positioning with a real shipped example so clients can quickly understand both your capabilities and your product quality.
+          </p> -->
+        </div>
+
+        <div class="projects-grid">
+          <article class="featured-project reveal">
+            <div class="featured-project-copy">
+              <div>
+                <span class="badge">Featured project</span>
+                <h3 style="font-size: 1.45rem; margin-top: 16px;">Deputy T. Cole</h3>
+                <p>Built an AI chatbot for Texas law enforcement that helps officers consult on report writing and tighten up narratives. The assistant is intentionally rough around the edges — helpful, blunt, and oddly fun to talk to — while still being practical inside real workflow scenarios.</p>
+                <div class="project-meta">
+                  <span class="tag">Chatbot</span>
+                  <span class="tag">Law Enforcement</span>
+                  <span class="tag">Report Writing</span>
+                  <span class="tag">Pinecone MCP</span>
+                  <span class="tag">RAG</span>
+                </div>
+                <div class="project-metric">Focus: reducing CJI exposure with placeholder-first workflows, supporting voice-based drafting, keeping drafts inside a secure 8-hour window, and making narrative cleanup easier for officers.</div>
+              </div>
+              <div class="project-links">
+                <a class="project-link" href="https://www.patrol99.com" target="_blank" rel="noopener noreferrer">Visit live demo ↗</a>
+              </div>
+            </div>
+            <div class="featured-project-gallery">
+              <img class="featured-shot" src="./assets/project/project1/1772249614814.jpg" alt="Deputy T. Cole app interface screenshot" />
+              <img class="featured-avatar" src="./assets/project/project1/1772249614717.jpg" alt="Deputy T. Cole character artwork" />
+            </div>
+          </article>
+
+          <article class="project-card surface reveal">
+            <h3>FotoBox AI</h3>
+            <p>I’ve been building FotoBox AI for ecommerce sellers who want clean, professional product images without fighting with Photoshop. Users can snap or upload a photo, then use AI for background removal, lifestyle scenes, mockups, and quick listing-ready edits.</p>
+            <div class="project-meta">
+              <span class="tag">Mobile App</span>
+              <span class="tag">Ecommerce</span>
+              <span class="tag">AI Imaging</span>
+              <span class="tag">Product Photos</span>
+            </div>
+            <div class="project-metric">Focus: speed, consistency, and fewer headaches for sellers. Built around simple before/after improvement workflows and AI-generated lifestyle scenes.</div>
+            <div class="project-gallery">
+              <img src="./assets/project/project2/1770393378588.jpg" alt="FotoBox AI lifestyle result image" />
+              <img src="./assets/project/project2/1770393380520.jpg" alt="FotoBox AI before image example" />
+              <img src="./assets/project/project2/1770393379229.jpg" alt="FotoBox AI after image example" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries" class="section">
+      <div class="container">
+        <div class="reveal">
+          <span class="badge">Industry exposure</span>
+          <h2 class="section-title">Industries reflected in your Upwork profile</h2>
+          <p class="section-subtitle">
+            These industry blocks now mirror the sectors and product categories highlighted in your Upwork overview.
+          </p>
+        </div>
+
+        <div class="industry-grid">
+          <article class="card surface reveal">
+            <h3>Core sectors</h3>
+            <div class="industry-list">
+              <span class="tag">Healthcare</span>
+              <span class="tag">Real estate</span>
+              <span class="tag">Finance</span>
+              <span class="tag">Education</span>
+            </div>
+          </article>
+
+          <article class="card surface reveal">
+            <h3>Data-heavy product areas</h3>
+            <div class="industry-list">
+              <span class="tag">Research systems</span>
+              <span class="tag">Knowledge platforms</span>
+              <span class="tag">Document-heavy apps</span>
+              <span class="tag">Sports analytics</span>
+            </div>
+          </article>
+
+          <article class="card surface reveal">
+            <h3>Business platforms</h3>
+            <div class="industry-list">
+              <span class="tag">SaaS</span>
+              <span class="tag">Internal tools</span>
+              <span class="tag">Operations platforms</span>
+              <span class="tag">Marketplaces</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <div class="reveal">
+          <span class="badge">How I work</span>
+          <h2 class="section-title">A process aligned with how you work on Upwork</h2>
+          <p class="section-subtitle">
+            This section mirrors the process in your Upwork overview: define the real v1, deliver in clear milestones, and build with clean production foundations.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="timeline-card surface reveal">
+            <div class="timeline-step">1</div>
+            <h3>Define the right v1</h3>
+            <p>Before writing code, I focus on what the product actually needs to do so time and budget aren’t wasted on premature complexity.</p>
+          </article>
+
+          <article class="timeline-card surface reveal">
+            <div class="timeline-step">2</div>
+            <h3>Deliver in clear milestones</h3>
+            <p>I structure delivery so clients always know what’s in progress, what’s complete, and what comes next.</p>
+          </article>
+
+          <article class="timeline-card surface reveal">
+            <div class="timeline-step">3</div>
+            <h3>Build for handoff and growth</h3>
+            <p>I focus on clean architecture, secure defaults, monitoring, documentation, deployment support, and a practical path to v2.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="reveal">
+          <span class="badge">Certifications</span>
+          <h2 class="section-title">Credentials that support your Upwork positioning</h2>
+          <p class="section-subtitle">
+            A focused certifications section helps reinforce technical credibility when prospects review your portfolio alongside your Upwork proposals.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card surface reveal">
+            <div>
+              <div class="icon">🏅</div>
+              <h3>Back-End Development Certification</h3>
+              <p>Boot.dev certificate covering backend development fundamentals and practical software engineering concepts relevant to production-focused product work.</p>
+              <div class="cert-meta">
+                <span class="tag">Boot.dev</span>
+                <span class="tag">Backend</span>
+                <span class="tag">Software Engineering</span>
+              </div>
+            </div>
+            <a class="cert-link" href="https://www.boot.dev/certificates/e8037068-f474-499e-85f5-8b0560a8ff46" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+          </article>
+
+          <article class="cert-card surface reveal">
+            <div>
+              <div class="icon">⚛️</div>
+              <h3>React Certification</h3>
+              <p>Verified Credly badge demonstrating React knowledge and modern frontend proficiency relevant to product-focused web development.</p>
+              <div class="cert-meta">
+                <span class="tag">Credly</span>
+                <span class="tag">Frontend</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+            <a class="cert-link" href="https://www.credly.com/badges/075e879f-dd98-4255-9ce0-0df1a354e644/linked_in_profile" target="_blank" rel="noopener noreferrer">View badge ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bar surface">
+        <div>
+          <strong style="display:block; color: var(--text); margin-bottom: 4px;">Gyasi Folborg — AI Product Engineer</strong>
+          <span>Python, FastAPI, Next.js, AI, RAG, SaaS</span>
+        </div>
+        <div class="tag-list" style="margin-top: 0;">
+          <span class="tag">Built for Upwork proposals</span>
+          <span class="tag">Single-file HTML/CSS/JS</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const navAnchors = [...document.querySelectorAll('.nav-links a')];
+    const revealEls = document.querySelectorAll('.reveal');
+    const sections = [...document.querySelectorAll('main section[id]')];
+
+    menuBtn?.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navAnchors.forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    const setActiveNav = () => {
+      const scrollY = window.scrollY + 120;
+      let currentId = '';
+      sections.forEach(section => {
+        if (scrollY >= section.offsetTop) currentId = section.id;
+      });
+      navAnchors.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+      });
+    };
+
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('load', setActiveNav);
+  </script>
+</body>
+</html>
