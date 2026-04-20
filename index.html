@@ -41,7 +41,7 @@
     }
 
     .section {
-      padding: 84px 0;
+      padding: 42px 0;
     }
 
     .badge {
@@ -501,15 +501,14 @@
     .featured-project-gallery {
       padding: 24px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 180px;
+      grid-template-columns: minmax(0, 1fr);
       gap: 14px;
       align-items: stretch;
       background: rgba(255,255,255,0.02);
       border-left: 1px solid rgba(255,255,255,0.06);
     }
 
-    .featured-shot,
-    .featured-avatar {
+    .featured-shot {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -520,7 +519,6 @@
     }
 
     .featured-shot { min-height: 360px; object-position: center top; }
-    .featured-avatar { min-height: 360px; object-position: center; }
 
     .project-gallery {
       display: grid;
@@ -559,6 +557,10 @@
       transition: 0.25s ease;
     }
 
+    .cert-link {
+      display: none;
+    }
+
     .project-link {
       background: linear-gradient(135deg, rgba(110,231,249,0.16), rgba(139,92,246,0.14));
       border-color: rgba(110,231,249,0.22);
@@ -569,6 +571,13 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 16px;
+    }
+
+    .cert-badge {
+      display: block;
+      height: 120px;
+      width: auto;
+      margin: 0 auto 16px;
     }
 
     .timeline-step {
@@ -622,7 +631,7 @@
       .featured-project { grid-template-columns: 1fr; }
       .featured-project-gallery {
         padding: 0 34px 34px;
-        grid-template-columns: 1fr 220px;
+        grid-template-columns: 1fr;
         border-left: none;
         background: transparent;
       }
@@ -653,8 +662,7 @@
         padding: 0 22px 22px;
       }
       .project-gallery { grid-template-columns: 1fr; }
-      .featured-shot,
-      .featured-avatar { min-height: 220px; }
+      .featured-shot { min-height: 220px; }
       .menu-btn { display: inline-flex; }
       .nav-links {
         position: absolute;
@@ -797,6 +805,7 @@
             <h3>Automation & Integrations</h3>
             <p>Reliable multi-step workflows, third-party APIs, webhooks, CRMs, payments, and event-driven backend systems.</p>
           </article>
+
         </div>
       </div>
     </section>
@@ -912,7 +921,6 @@
             </div>
             <div class="featured-project-gallery">
               <img class="featured-shot" src="./assets/project/project1/1772249614814.jpg" alt="Deputy T. Cole app interface screenshot" />
-              <img class="featured-avatar" src="./assets/project/project1/1772249614717.jpg" alt="Deputy T. Cole character artwork" />
             </div>
           </article>
 
@@ -940,10 +948,6 @@
       <div class="container">
         <div class="reveal">
           <span class="badge">Industry exposure</span>
-          <h2 class="section-title">Industries reflected in your Upwork profile</h2>
-          <p class="section-subtitle">
-            These industry blocks now mirror the sectors and product categories highlighted in your Upwork overview.
-          </p>
         </div>
 
         <div class="industry-grid">
@@ -984,10 +988,6 @@
       <div class="container">
         <div class="reveal">
           <span class="badge">How I work</span>
-          <h2 class="section-title">A process aligned with how you work on Upwork</h2>
-          <p class="section-subtitle">
-            This section mirrors the process in your Upwork overview: define the real v1, deliver in clear milestones, and build with clean production foundations.
-          </p>
         </div>
 
         <div class="process-grid">
@@ -1016,16 +1016,12 @@
       <div class="container">
         <div class="reveal">
           <span class="badge">Certifications</span>
-          <h2 class="section-title">Credentials that support your Upwork positioning</h2>
-          <p class="section-subtitle">
-            A focused certifications section helps reinforce technical credibility when prospects review your portfolio alongside your Upwork proposals.
-          </p>
         </div>
 
         <div class="cert-grid">
           <article class="cert-card surface reveal">
             <div>
-              <div class="icon">🏅</div>
+              <img class="cert-badge" src="./assets/img/python-badge.png" alt="Coursera React Basics course image" />
               <h3>Back-End Development Certification</h3>
               <p>Boot.dev certificate covering backend development fundamentals and practical software engineering concepts relevant to production-focused product work.</p>
               <div class="cert-meta">
@@ -1039,16 +1035,30 @@
 
           <article class="cert-card surface reveal">
             <div>
-              <div class="icon">⚛️</div>
-              <h3>React Certification</h3>
-              <p>Verified Credly badge demonstrating React knowledge and modern frontend proficiency relevant to product-focused web development.</p>
+              <img class="cert-badge" src="./assets/img/frontend-badge.png" alt="Coursera React Basics course image" />
+              <h3>React Basics</h3>
+              <p>Coursera and Meta course-style credential entry highlighting React fundamentals, component-based UI development, and modern frontend skills.</p>
               <div class="cert-meta">
-                <span class="tag">Credly</span>
-                <span class="tag">Frontend</span>
+                <span class="tag">Coursera</span>
+                <span class="tag">Meta</span>
                 <span class="tag">React</span>
               </div>
             </div>
-            <a class="cert-link" href="https://www.credly.com/badges/075e879f-dd98-4255-9ce0-0df1a354e644/linked_in_profile" target="_blank" rel="noopener noreferrer">View badge ↗</a>
+            <a class="cert-link" href="https://www.coursera.org/learn/react-basics" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+          </article>
+
+          <article class="cert-card surface reveal">
+            <div>
+              <img class="cert-badge" src="./assets/img/AI-badge.png" alt="IBM Artificial Intelligence Essentials badge" />
+              <h3>Artificial Intelligence Essentials</h3>
+              <p>Official IBM badge highlighting foundational AI concepts and practical understanding of artificial intelligence essentials.</p>
+              <div class="cert-meta">
+                <span class="tag">IBM</span>
+                <span class="tag">Artificial Intelligence</span>
+                <span class="tag">Foundations</span>
+              </div>
+            </div>
+            <a class="cert-link" href="https://www.ibm.com/training/badge/artificial-intelligence-essentials.1" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
           </article>
         </div>
       </div>
@@ -1061,10 +1071,6 @@
         <div>
           <strong style="display:block; color: var(--text); margin-bottom: 4px;">Gyasi Folborg — AI Product Engineer</strong>
           <span>Python, FastAPI, Next.js, AI, RAG, SaaS</span>
-        </div>
-        <div class="tag-list" style="margin-top: 0;">
-          <span class="tag">Built for Upwork proposals</span>
-          <span class="tag">Single-file HTML/CSS/JS</span>
         </div>
       </div>
     </div>
@@ -1112,3 +1118,9 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
